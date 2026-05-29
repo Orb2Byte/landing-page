@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre nosotros — Orb2Byte</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['var(--font-display)', 'system-ui', 'sans-serif'],
+            body:    ['var(--font-body)',    'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --font-display: 'Sora', system-ui, sans-serif;
+      --font-body:    'Inter', system-ui, sans-serif;
+      --a1:       #22d3ee;
+      --a2:       #3b82f6;
+      --a-soft:   #67e8f9;
+      --glow:     34, 211, 238;
+      --glow2:    59, 130, 246;
+      --bg:             #f3f5fb;
+      --solid:          #ffffff;
+      --c-strong:       #0c1322;
+      --c-muted:        #46536b;
+      --c-subtle:       #64748b;
+      --c-faint:        #8a97a8;
+      --surface-1:      rgba(15,23,42,0.022);
+      --surface-2:      rgba(15,23,42,0.045);
+      --border:         rgba(15,23,42,0.10);
+      --line:           rgba(15,23,42,0.08);
+      --hairline:       rgba(15,23,42,0.18);
+      --glass-bg:       rgba(255,255,255,0.62);
+      --glass-bd:       rgba(15,23,42,0.08);
+      --glass-strong-bg:rgba(255,255,255,0.82);
+      --glass-strong-bd:rgba(15,23,42,0.10);
+      --ghost-bd:       rgba(15,23,42,0.12);
+      --grain:          rgba(15,23,42,0.02);
+      --scroll-thumb:   rgba(15,23,42,0.20);
+      --space-base:     #f3f5fb;
+    }
+
+    html[data-theme="dark"] {
+      --bg:             #05070f;
+      --solid:          #0b1020;
+      --c-strong:       #ffffff;
+      --c-muted:        #cdd6e6;
+      --c-subtle:       #94a3b8;
+      --c-faint:        #64748b;
+      --surface-1:      rgba(255,255,255,0.02);
+      --surface-2:      rgba(255,255,255,0.055);
+      --border:         rgba(255,255,255,0.09);
+      --line:           rgba(255,255,255,0.12);
+      --hairline:       rgba(255,255,255,0.14);
+      --glass-bg:       rgba(255,255,255,0.04);
+      --glass-bd:       rgba(255,255,255,0.08);
+      --glass-strong-bg:rgba(13,18,36,0.62);
+      --glass-strong-bd:rgba(255,255,255,0.09);
+      --ghost-bd:       rgba(255,255,255,0.14);
+      --grain:          rgba(255,255,255,0.025);
+      --scroll-thumb:   rgba(255,255,255,0.12);
+      --space-base:     #05070f;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--c-strong);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      transition: background-color .4s ease, color .4s ease;
+    }
+
+    .font-display { font-family: var(--font-display); }
+
+    .space-bg {
+      background:
+        radial-gradient(900px 600px at 80% -5%, rgba(var(--glow2), 0.16), transparent 60%),
+        radial-gradient(800px 520px at 12% 8%, rgba(var(--glow), 0.13), transparent 60%),
+        radial-gradient(1200px 800px at 50% 110%, rgba(124, 92, 246, 0.10), transparent 60%),
+        var(--space-base);
+    }
+
+    .grain::before {
+      content: "";
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image: radial-gradient(var(--grain) 1px, transparent 1px);
+      background-size: 3px 3px;
+    }
+
+    .text-gradient {
+      background: linear-gradient(110deg, var(--a-soft) 0%, var(--a1) 35%, var(--a2) 75%, #a78bfa 110%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .glass {
+      background: var(--glass-bg);
+      backdrop-filter: blur(18px) saturate(140%);
+      -webkit-backdrop-filter: blur(18px) saturate(140%);
+      border: 1px solid var(--glass-bd);
+    }
+    .glass-strong {
+      background: var(--glass-strong-bg);
+      backdrop-filter: blur(22px) saturate(150%);
+      -webkit-backdrop-filter: blur(22px) saturate(150%);
+      border: 1px solid var(--glass-strong-bd);
+    }
+
+    .btn-primary {
+      background: linear-gradient(120deg, var(--a1), var(--a2));
+      box-shadow: 0 10px 30px -8px rgba(var(--glow2), 0.55), inset 0 1px 0 rgba(255,255,255,0.25);
+      transition: transform .25s cubic-bezier(.2,.7,.3,1), box-shadow .25s, filter .25s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 18px 44px -10px rgba(var(--glow2), 0.7), inset 0 1px 0 rgba(255,255,255,0.3);
+      filter: brightness(1.06);
+    }
+
+    .card-hover {
+      transition: transform .35s cubic-bezier(.2,.7,.3,1), border-color .35s, box-shadow .35s, background .35s;
+    }
+    .card-hover:hover {
+      transform: translateY(-6px);
+      border-color: rgba(var(--glow), 0.45);
+      box-shadow: 0 24px 60px -24px rgba(var(--glow2), 0.45);
+      background: var(--surface-2);
+    }
+
+    .text-slate-200, .text-slate-200\/90,
+    .text-slate-300, .text-slate-300\/90, .text-slate-300\/85, .text-slate-300\/80 { color: var(--c-muted) !important; }
+    .text-slate-400  { color: var(--c-subtle) !important; }
+    .text-slate-500  { color: var(--c-faint)  !important; }
+    .text-white, .text-white\/90 { color: var(--c-strong) !important; }
+    .hover\:text-white:hover     { color: var(--c-strong) !important; }
+    .btn-primary, [style*="linear-gradient"].text-white { color: #fff !important; }
+
+    .bg-white\/5, .bg-white\/8, .bg-white\/\[0\.04\] { background-color: var(--surface-2) !important; }
+
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track  { background: var(--bg); }
+    ::-webkit-scrollbar-thumb  { background: var(--scroll-thumb); border-radius: 99px; }
+  </style>
+</head>
+<body class="space-bg grain font-body antialiased">
+
+  <!-- ── Navbar ── -->
+  <header class="fixed top-0 inset-x-0 z-50">
+    <div class="mx-auto max-w-7xl px-4 mt-4">
+      <nav class="flex items-center justify-between rounded-2xl px-4 sm:px-5 h-16 border border-transparent bg-transparent">
+        <a href="index.html" class="flex items-center gap-2.5 group">
+          <img src="logo.png" alt="" class="h-9 w-auto object-contain" />
+          <span class="font-display text-lg font-semibold tracking-tight text-white">Orb2<span style="background:linear-gradient(110deg,var(--a-soft),var(--a1),var(--a2));-webkit-background-clip:text;background-clip:text;color:transparent">Byte</span></span>
+        </a>
+        <div class="flex items-center gap-1">
+          <a href="index.html" class="px-3.5 py-2 text-sm font-medium text-slate-300 rounded-lg hover:text-white hover:bg-white/5 transition-colors">Inicio</a>
+          <a href="index.html#solution" class="px-3.5 py-2 text-sm font-medium text-slate-300 rounded-lg hover:text-white hover:bg-white/5 transition-colors">Soluciones</a>
+          <a href="index.html#process" class="px-3.5 py-2 text-sm font-medium text-slate-300 rounded-lg hover:text-white hover:bg-white/5 transition-colors">Cómo trabajamos</a>
+          <a href="about.html" class="px-3.5 py-2 text-sm font-medium text-white rounded-lg bg-white/5 transition-colors" aria-current="page">Sobre nosotros</a>
+        </div>
+        <a href="index.html#cta" class="hidden sm:inline-flex btn-primary items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold text-white">
+          Agendar demo
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="relative pt-32 pb-24">
+
+    <!-- ── Hero ── -->
+    <section class="mx-auto max-w-7xl px-5 text-center">
+      <p class="text-sm font-semibold uppercase tracking-widest text-slate-400 mb-4">Sobre nosotros</p>
+      <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-white text-balance">
+        Construimos el software<br class="hidden sm:block" />
+        <span class="text-gradient">que tu negocio necesita</span>
+      </h1>
+      <p class="mx-auto mt-6 max-w-2xl text-lg sm:text-xl text-slate-300 text-pretty">
+        Somos un equipo especializado en desarrollo de software SaaS a medida para pequeñas y medianas empresas. Nuestra misión es digitalizar negocios con soluciones rápidas, sencillas y asequibles.
+      </p>
+    </section>
+
+    <!-- ── Mission & Vision ── -->
+    <section class="mx-auto max-w-7xl px-5 mt-24">
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <div class="card-hover glass rounded-3xl p-8 sm:p-10" style="border: 1px solid rgba(var(--glow),0.18);">
+          <div class="flex h-12 w-12 items-center justify-center rounded-2xl text-white mb-6"
+               style="background: linear-gradient(135deg, var(--a1), var(--a2)); box-shadow: 0 0 28px -6px rgba(var(--glow),0.6);">
+            <!-- target icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
+          <h2 class="font-display text-2xl font-bold text-white mb-3">Nuestra misión</h2>
+          <p class="text-slate-300 leading-relaxed">
+            Democratizar el acceso a software profesional para PYMEs. Creemos que las pequeñas empresas merecen las mismas herramientas que las grandes corporaciones, adaptadas a su escala y presupuesto.
+          </p>
+        </div>
+
+        <div class="card-hover glass rounded-3xl p-8 sm:p-10" style="border: 1px solid rgba(var(--glow2),0.18);">
+          <div class="flex h-12 w-12 items-center justify-center rounded-2xl text-white mb-6"
+               style="background: linear-gradient(135deg, var(--a2), #7c3aed); box-shadow: 0 0 28px -6px rgba(var(--glow2),0.6);">
+            <!-- eye icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h2 class="font-display text-2xl font-bold text-white mb-3">Nuestra visión</h2>
+          <p class="text-slate-300 leading-relaxed">
+            Un mundo donde cualquier negocio, sin importar su tamaño, pueda operar con la misma eficiencia digital que las empresas líderes de su sector.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Values ── -->
+    <section class="mx-auto max-w-7xl px-5 mt-20">
+      <div class="text-center mb-12">
+        <p class="text-sm font-semibold uppercase tracking-widest text-slate-400 mb-3">Lo que nos mueve</p>
+        <h2 class="font-display text-4xl sm:text-5xl font-extrabold text-white">Nuestros valores</h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <div class="card-hover glass rounded-2xl p-7" style="border: 1px solid var(--border);">
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl mb-5"
+               style="background: rgba(var(--glow),0.15); color: var(--a1);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="font-display text-lg font-bold text-white mb-2">Confianza</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">Construimos relaciones a largo plazo. Tu éxito es el nuestro.</p>
+        </div>
+
+        <div class="card-hover glass rounded-2xl p-7" style="border: 1px solid var(--border);">
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl mb-5"
+               style="background: rgba(var(--glow),0.15); color: var(--a1);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3 class="font-display text-lg font-bold text-white mb-2">Agilidad</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">De la idea al producto en semanas, no en meses. Sin burocracia innecesaria.</p>
+        </div>
+
+        <div class="card-hover glass rounded-2xl p-7" style="border: 1px solid var(--border);">
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl mb-5"
+               style="background: rgba(var(--glow),0.15); color: var(--a1);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <h3 class="font-display text-lg font-bold text-white mb-2">Simplicidad</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">Software que cualquier persona puede usar desde el primer día, sin formación técnica.</p>
+        </div>
+
+        <div class="card-hover glass rounded-2xl p-7" style="border: 1px solid var(--border);">
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl mb-5"
+               style="background: rgba(var(--glow),0.15); color: var(--a1);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="font-display text-lg font-bold text-white mb-2">Cercanía</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">Un equipo humano que escucha, entiende tu negocio y está siempre disponible.</p>
+        </div>
+
+        <div class="card-hover glass rounded-2xl p-7" style="border: 1px solid var(--border);">
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl mb-5"
+               style="background: rgba(var(--glow),0.15); color: var(--a1);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+          </div>
+          <h3 class="font-display text-lg font-bold text-white mb-2">Transparencia</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">Sin letra pequeña. Precios claros, entregas concretas y comunicación directa.</p>
+        </div>
+
+        <div class="card-hover glass rounded-2xl p-7" style="border: 1px solid var(--border);">
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl mb-5"
+               style="background: rgba(var(--glow),0.15); color: var(--a1);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="m16.24 7.76 2.83-2.83"/><path d="M20 12h4"/><path d="m16.24 16.24 2.83 2.83"/><path d="M12 18v4"/><path d="m4.93 19.07 2.83-2.83"/><path d="M2 12h4"/><path d="m4.93 4.93 2.83 2.83"/></svg>
+          </div>
+          <h3 class="font-display text-lg font-bold text-white mb-2">Innovación</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">Usamos las últimas tecnologías para que tu negocio esté siempre un paso por delante.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Team placeholder ── -->
+    <section class="mx-auto max-w-7xl px-5 mt-24">
+      <div class="text-center mb-12">
+        <p class="text-sm font-semibold uppercase tracking-widest text-slate-400 mb-3">Las personas detrás</p>
+        <h2 class="font-display text-4xl sm:text-5xl font-extrabold text-white">Nuestro equipo</h2>
+        <p class="mx-auto mt-4 max-w-xl text-slate-300">
+          Un equipo apasionado por la tecnología y comprometido con el éxito de cada cliente.
+        </p>
+      </div>
+
+      <!-- Team cards — add real members here -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div class="card-hover glass rounded-3xl p-8 text-center" style="border: 1px solid var(--border);">
+          <div class="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-full text-3xl font-bold text-white"
+               style="background: linear-gradient(135deg, var(--a1), var(--a2));">
+            ?
+          </div>
+          <h3 class="font-display text-lg font-bold text-white">Tu nombre aquí</h3>
+          <p class="text-sm text-slate-400 mt-1">Co-fundador · CEO</p>
+          <p class="text-sm text-slate-400 mt-3 leading-relaxed">Breve descripción del miembro del equipo y su experiencia.</p>
+        </div>
+
+        <div class="card-hover glass rounded-3xl p-8 text-center" style="border: 1px solid var(--border);">
+          <div class="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-full text-3xl font-bold text-white"
+               style="background: linear-gradient(135deg, var(--a2), #7c3aed);">
+            ?
+          </div>
+          <h3 class="font-display text-lg font-bold text-white">Tu nombre aquí</h3>
+          <p class="text-sm text-slate-400 mt-1">Co-fundador · CTO</p>
+          <p class="text-sm text-slate-400 mt-3 leading-relaxed">Breve descripción del miembro del equipo y su experiencia.</p>
+        </div>
+
+        <div class="card-hover glass rounded-3xl p-8 text-center" style="border: 1px solid var(--border);">
+          <div class="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-full text-3xl font-bold text-white"
+               style="background: linear-gradient(135deg, #7c3aed, var(--a1));">
+            ?
+          </div>
+          <h3 class="font-display text-lg font-bold text-white">Tu nombre aquí</h3>
+          <p class="text-sm text-slate-400 mt-1">Lead Developer</p>
+          <p class="text-sm text-slate-400 mt-3 leading-relaxed">Breve descripción del miembro del equipo y su experiencia.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── CTA strip ── -->
+    <section class="mx-auto max-w-7xl px-5 mt-24">
+      <div class="relative overflow-hidden rounded-[2rem] p-8 sm:p-14 text-center"
+           style="border: 1px solid rgba(var(--glow),0.25);">
+        <div class="pointer-events-none absolute inset-0"
+             style="background: linear-gradient(135deg, rgba(var(--glow),0.20), rgba(var(--glow2),0.12) 45%, rgba(124,92,246,0.16));"></div>
+        <div class="relative">
+          <h2 class="font-display mx-auto max-w-2xl text-3xl sm:text-4xl font-extrabold text-white text-balance">
+            ¿Tienes un proyecto en mente?<br />Hablemos.
+          </h2>
+          <p class="mx-auto mt-4 max-w-lg text-slate-300">
+            Agenda una llamada de 30 minutos y cuéntanos tu caso. Sin compromiso.
+          </p>
+          <div class="mt-8">
+            <a href="index.html#cta" class="btn-primary inline-flex items-center gap-2 rounded-2xl px-7 py-4 text-base font-bold text-white">
+              Agendar demo gratuita
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="relative border-t pt-12 pb-10" style="border-color: var(--border);">
+    <div class="mx-auto max-w-7xl px-5">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <a href="index.html" class="flex items-center gap-2.5 group">
+          <img src="logo.png" alt="" class="h-9 w-auto object-contain" />
+          <span class="font-display text-lg font-semibold tracking-tight text-white">Orb2<span style="background:linear-gradient(110deg,var(--a-soft),var(--a1),var(--a2));-webkit-background-clip:text;background-clip:text;color:transparent">Byte</span></span>
+        </a>
+        <nav class="flex items-center gap-7">
+          <a href="about.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Sobre nosotros</a>
+          <a href="index.html#cta" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Contacto</a>
+        </nav>
+      </div>
+      <div class="mt-10 flex items-center justify-between gap-3 border-t pt-6 text-sm" style="border-color: var(--border); color: var(--c-faint);">
+        <span>© 2026 Orb2Byte. Todos los derechos reservados.</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -4,19 +4,7 @@ const { useState: useState1, useEffect: useEffect1 } = React;
 function Logo({ className = "" }) {
   return (
     <a href="#top" className={`flex items-center gap-2.5 group ${className}`}>
-      <span className="relative inline-flex h-9 w-9 items-center justify-center">
-        <svg viewBox="0 0 40 40" className="h-9 w-9">
-          <defs>
-            <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stopColor="var(--a-soft)" />
-              <stop offset="1" stopColor="var(--a2)" />
-            </linearGradient>
-          </defs>
-          <circle cx="20" cy="20" r="6.5" fill="url(#lg)" />
-          <ellipse cx="20" cy="20" rx="16" ry="7" fill="none" stroke="var(--hairline)" strokeWidth="1.4" transform="rotate(-28 20 20)" />
-          <circle cx="33" cy="13.5" r="2.4" fill="var(--a-soft)" />
-        </svg>
-      </span>
+      <img src="logo.png" alt="" className="h-9 w-auto object-contain" />
       <span className="font-display text-lg font-700 tracking-tight text-white">
         Orb2<span className="text-gradient">Byte</span>
       </span>

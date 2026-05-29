@@ -3,8 +3,8 @@
 const STRINGS = {
   es: {
     nav: {
-      links: ["Soluciones", "Cómo trabajamos", "Contacto"],
-      hrefs: ["#solution", "#process", "#cta"],
+      links: ["Soluciones", "Cómo trabajamos", "Sobre nosotros", "Contacto"],
+      hrefs: ["#solution", "#process", "about.html", "#cta"],
       bookDemo: "Agendar demo",
     },
     hero: {
@@ -87,8 +87,8 @@ const STRINGS = {
 
   en: {
     nav: {
-      links: ["Solutions", "How we work", "Contact"],
-      hrefs: ["#solution", "#process", "#cta"],
+      links: ["Solutions", "How we work", "About us", "Contact"],
+      hrefs: ["#solution", "#process", "about.html", "#cta"],
       bookDemo: "Book a demo",
     },
     hero: {

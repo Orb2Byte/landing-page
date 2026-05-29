@@ -27,8 +27,8 @@ function FinalCTA({ onBookDemo }) {
                 <button onClick={onBookDemo} className="btn-primary inline-flex items-center gap-2 rounded-2xl px-7 py-4 text-base font-700 text-white w-full sm:w-auto justify-center">
                   {c.primary} <I.Arrow size={18} />
                 </button>
-                <a href="mailto:hello@orb2byte.io" className="btn-ghost inline-flex items-center gap-2 rounded-2xl px-7 py-4 text-base font-600 text-white w-full sm:w-auto justify-center">
-                  <I.Mail size={17} /> hello@orb2byte.io
+                <a href="mailto:orb2byte@gmail.com" className="btn-ghost inline-flex items-center gap-2 rounded-2xl px-7 py-4 text-base font-600 text-white w-full sm:w-auto justify-center">
+                  <I.Mail size={17} /> orb2byte@gmail.com
                 </a>
               </div>
             </div>
